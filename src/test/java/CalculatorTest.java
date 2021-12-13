@@ -1,4 +1,4 @@
-
+package test.java;
 
 import main.java.Calculator;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,40 +9,38 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTest {
 
-  private static Calculator calculator;
-
-  @BeforeAll
-  //TODO
+  private static Calculator calculator = new Calculator();
 
   @Test
   public void verifyAddition() {
-    //TODO
+    assertEquals(45, calculator.addition(25,20));
+    assertEquals(15, calculator.addition(5,10));
   }
-
 
   @Test
   public void verifySubtraction() {
-    //TODO
-  }
+    assertEquals(5, calculator.subtraction(25, 20));
 
+  }
 
   @Test
   public void verifyMultiplication() {
-    //TODO
+    assertEquals(500, calculator.multiplication(25,20));
+
   }
 
   @Test
   public void verifyDivision() {
-    //TODO
+    assertEquals(1, calculator.division(25, 25));
+    assertEquals(4, calculator.division(40, 10));
   }
-
 
   @Test
   public void verifyDivisionByZero() {
     Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
       calculator.division(5, 0);
     });
-    //TODO
+    assertEquals(2, calculator.division(10, 5));
   }
 }
 
